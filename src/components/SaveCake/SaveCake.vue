@@ -2,15 +2,9 @@
   <div id="save-cake" class="save-cake">
     <div class="save">
       <ul class="save__list">
-        <li class="save__item">
-          <p class="save__text">Слоеное тесто</p>
-          <button type="button" class="save__button"></button>
-        </li>
-        <li class="save__item">
-          <p class="save__text">Слоеное тесто</p>
-        </li>
-        <li class="save__item">
-          <p class="save__text">Слоеное тесто</p>
+        <li v-for="(item, index) in savecake" :key="index" class="save__item">
+          <p class="save__text">{{item.name}}</p>
+          <button id="index" type="button" class="save__button"></button>
         </li>
       </ul>
     </div>
@@ -19,7 +13,20 @@
 
 <script>
 export default {
-  name: 'SaveCake'
+  name: 'SaveCake',
+  data: () => ({
+    savecake: [
+      {
+        name: 'Слоеное тесто'
+      },
+      {
+        name: 'Торт наполеон'
+      },
+      {
+        name: 'Корзинки с карамелью'
+      },
+    ]
+  })
 }
 </script>
 
@@ -48,7 +55,7 @@ export default {
   }
 
   .save__text {
-    padding: 3px 10px;
+    padding: 3px 8px 3px 12px;
     cursor: pointer;
   }
 
