@@ -8,22 +8,24 @@
         </h3>
         <div class="form__head head">
           <div class="head__item">
-            <label class="head__label" for="name-cake">Название десерта</label>
+            <label class="head__label" for="namecake">Название десерта</label>
             <input
               placeholder=" "
               class="head__input"
               type="text"
-              name="name-cake"
+              name="namecake"
+              id="namecake"
             />
           </div>
           <div class="head__item">
-            <label class="head__label" for="weight-all-cake">Вес готового десерта в гр.</label>
+            <label class="head__label" for="weightcake">Вес готового десерта в гр.</label>
             <input
               placeholder=" "
               class="head__input"
               type="number"
               min="0"
-              name="weight-all-cake"
+              name="weightcake"
+              id="weightcake"
             />
           </div>
         </div>
@@ -48,7 +50,7 @@ export default {
   margin-bottom: 50px;
 
   .line-green {
-    background: #00d466;
+    background: #00b557;
     width: 100%;
     height: 150px;
   }
@@ -87,12 +89,12 @@ export default {
     }
   }
   .head__label {
-    flex: 1 1 auto;
+    flex: 1 1 50%;
     margin: 20px 5px 20px 20px;
     cursor: text;
   }
   .head__input {
-    flex: 1 1 auto;
+    flex: 1 1 50%;
     margin: 20px 20px 20px 5px;
     border: none;
   }
