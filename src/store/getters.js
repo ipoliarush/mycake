@@ -1,4 +1,6 @@
 export default {
-  IS_OPEN: state => state.isOpen,
-  IS_MOBILE_MENU: state => state.isMobileMenu,
+  INGRIDIENT: state => state.ingridient,
+  CARTCAKE: state => state.cartcake,
+  COSTPRICE: state => state.costprice,
+  SAVEDCAKE: state => state.savedcake
 }

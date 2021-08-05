@@ -1,5 +1,5 @@
 <template>
-  <div id="desert" class="desert">
+  <div id="ingredient" class="ingredient">
     <div class="wrapp">
       <form class="form">
         <h3 class="form__title">
@@ -20,18 +20,18 @@
           </div>
         </div>
         <div class="form__body body">
-          <div v-for="(item, index) in ing" :key="index" class="body__line">
+          <div v-for="(item, index) in uping" :key="index" class="body__line">
             <div class="body__item">
-              <input @input="addline(index), sum()" v-model="item.name" :name="'iname' + index" type="text" class="body__input">
+              <input @input="addline(index), count()" v-model="item.name" :name="'iname' + index" type="text" class="body__input">
             </div> 
             <div class="body__item">
-              <input @input="addline(index), sum()" v-model.number="item.weight" :name="'iweight' + index" type="number" min="0" class="body__input">
+              <input @input="addline(index), count()" v-model.number="item.weight" :name="'iweight' + index" type="number" min="0" class="body__input">
             </div> 
             <div class="body__item">
-              <input @input="addline(index), sum()" v-model.number="item.price" :name="'iprice' + index" type="number" min="0" step="0.1" class="body__input">
+              <input @input="addline(index), count()" v-model.number="item.price" :name="'iprice' + index" type="number" min="0" step="0.1" class="body__input">
             </div> 
             <div class="body__item">
-              <input @input="addline(index), sum()" v-model.number="item.rweight" :name="'irweigt' + index" type="number" min="0" class="body__input">
+              <input @input="addline(index), count()" v-model.number="item.rweight" :name="'irweigt' + index" type="number" min="0" class="body__input">
             </div> 
             <div class="body__remove">
               <button v-on:click="remove(index)" type="button" class="body__button"></button>
@@ -44,53 +44,51 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  name: 'Desert',
-  data: () => ({
-    ing: [{},{},{}],
-    costprice: 0
-  }),
+  name: 'IngredientCake',
+  data: () => ({}),
+  computed: {
+    ...mapGetters([
+      'INGRIDIENT'
+    ]),
+    uping: {
+      get() {
+        return this.INGRIDIENT
+      },
+      set(value) {
+        this.UPDATE_INGRIDIENT(value)
+      }
+    },
+  },
   methods: {
-    remove: function(n) {
-      if(this.ing.length > 1) {
-        this.ing.splice(n, 1)
+    ...mapMutations([
+      'UPDATE_INGRIDIENT',
+    ]),
+    ...mapMutations({
+      count: 'UPDATE_COSTPRICE'
+    }),
+    remove(n) {
+      if(this.uping.length > 1) {
+        this.uping.splice(n, 1)
       }
       else {
-        this.ing = [{}]
+        this.uping = [{}]
       }
-
-      this.costprice = 0
-
-      for(const item of this.ing) {
-        if(item.weight && item.price && item.rweight) {
-          this.costprice += (item.rweight / item.weight) * item.price
-        }
-      }
-
-      this.$emit('costprice', this.costprice)
+      this.count()
     },
-    addline: function(n) {
-      if((this.ing.length - 1) === n) {
-        this.ing.push({})
+    addline(index) {
+      if((this.uping.length - 1) === index) {
+        this.uping.push({})
       }
-    },
-    sum: function() {
-      this.costprice = 0
-
-      for(const item of this.ing) {
-        if(item.weight && item.price && item.rweight) {
-          this.costprice += (item.rweight / item.weight) * item.price
-        }
-      }
-
-      this.$emit('costprice', this.costprice)
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.desert {
+.ingredient {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -110,6 +108,7 @@ export default {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    position: relative;
   }
   .form__title {
     margin-left: 20px;

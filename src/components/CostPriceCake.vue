@@ -1,8 +1,8 @@
 <template>
-  <div id="rezult" class="rezult">
+  <div id="costprice" class="costprice">
     <div class="wrapp">
       <div class="head">
-        <h2 class="title">Себестоимость — {{ costprice.toFixed(2) }} грн</h2>
+        <h2 class="title">Себестоимость — {{ COSTPRICE.toFixed(2) }} грн</h2>
         <p class="subtitle">Не забудьте заложить в стоимость расходы на упаковку, работу кондитера, электроэнергию и амортизацию оборудования.</p>
       </div>
     </div>
@@ -10,23 +10,21 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'Rezult',
+  name: 'CostPriceCake',
   data: () => ({}),
-  methods: {
-    
-  },
-  props: {
-    costprice: {
-      type: Number,
-      default: 0
-    }
+  computed: {
+    ...mapGetters([
+      'COSTPRICE'
+    ]),
   }
 }
 </script>
 
 <style scoped lang="scss">
-.rezult {
+.costprice {
   width: 100%;
   display: flex;
   flex-direction: column;

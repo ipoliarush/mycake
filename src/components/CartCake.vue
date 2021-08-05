@@ -10,7 +10,7 @@
           <div class="head__item">
             <label class="head__label" for="namecake">Название десерта</label>
             <input
-              placeholder=" "
+              v-model="upcartcake.name"
               class="head__input"
               type="text"
               name="namecake"
@@ -20,7 +20,7 @@
           <div class="head__item">
             <label class="head__label" for="weightcake">Вес готового десерта в гр.</label>
             <input
-              placeholder=" "
+              v-model.number="upcartcake.weight"
               class="head__input"
               type="number"
               min="0"
@@ -35,8 +35,29 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  name: 'CartCake'
+  name: 'CartCake',
+  data:() => ({}),
+  methods: {
+    ...mapMutations([
+      'UPDATE_CARTCAKE'
+    ])
+  },
+  computed: {
+    ...mapGetters([
+      'CARTCAKE'
+    ]),
+    upcartcake: {
+      get() {
+        return this.CARTCAKE
+      },
+      set(value) {
+        this.UPDATE_CARTCAKE(value)
+      }
+    }
+  }
 }
 </script>
 

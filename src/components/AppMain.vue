@@ -1,29 +1,24 @@
 <template>
   <div id="main" class="main">
-    <save-cake></save-cake>
+    <saved-cake></saved-cake>
     <cart-cake></cart-cake>
-    <desert @costprice="onPrice"></desert>
-    <rezult v-bind:costprice="costprice"></rezult>
+    <ingredient-cake></ingredient-cake>
+    <save-cake></save-cake>
+    <cost-price-cake></cost-price-cake>
   </div>
 </template>
 
 <script>
-import SaveCake from './SaveCake/SaveCake.vue'
-import CartCake from './Form/CartCake.vue'
-import Desert from './Form/Desert.vue'
-import Rezult from './Rezult/Rezult.vue'
+import SavedCake from './SavedCake.vue'
+import CartCake from './CartCake.vue'
+import IngredientCake from './IngredientCake.vue'
+import CostPriceCake from './CostPriceCake.vue'
+import SaveCake from './SaveCake.vue'
 
 export default {
   name: 'AppMain',
-  components: { CartCake, Desert, Rezult, SaveCake },
-  data:() => ({
-    costprice: 0
-  }),
-  methods: {
-    onPrice(data) {
-      this.costprice = data
-    }
-  }
+  components: { CartCake, IngredientCake, CostPriceCake, SavedCake, SaveCake },
+  data:() => ({})
 }
 
 </script>
