@@ -15,6 +15,7 @@
               type="text"
               name="namecake"
               id="namecake"
+              autocomplete="off"
             />
           </div>
           <div class="head__item">
@@ -26,6 +27,7 @@
               min="0"
               name="weightcake"
               id="weightcake"
+              autocomplete="off"
             />
           </div>
         </div>
@@ -68,12 +70,16 @@ export default {
   flex-direction: column;
   justify-content: center;
   color: #fff;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+    
+  @include respond-to('small') {
+    margin-bottom: 50px;
+  }
 
   .line-green {
     background: #00b557;
     width: 100%;
-    height: 150px;
+    height: 100px;
   }
 
   .wrapp {
@@ -93,6 +99,11 @@ export default {
   .form__title {
     margin-left: 20px;
     margin-bottom: 10px;
+    font-size: 21px;
+
+    @include respond-to('small') {
+      font-size: 25px;
+    }
   }
   .head {
     flex: 1 1 auto;
@@ -104,6 +115,11 @@ export default {
     flex: 1 1 auto;
     flex-direction: row;
     color: #808080;
+    font-size: 14px;
+
+    @include respond-to('small') {
+      font-size: 16px;
+    }
 
     &:first-child {
       border-bottom: 1px solid #f5f5f5;

@@ -23,7 +23,7 @@ export default {
   },
   SAVECAKE(state) {
 
-    let savedcake = JSON.parse(localStorage.getItem('savedcake'))
+    let savedcake = JSON.parse(localStorage.getItem('savedcake')) || []
     const cartcake = state.cartcake
     const ingridient = state.ingridient
 

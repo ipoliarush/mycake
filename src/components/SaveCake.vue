@@ -1,7 +1,7 @@
 <template>
   <div id="save-cake" class="save-cake">
     <div class="save">
-      <button v-on:click="save" type="button" class="save__button">Сохранить рецепт</button>
+      <button v-on:click="save()" type="button" class="save__button">Сохранить рецепт</button>
     </div>
   </div>
 </template>
@@ -28,17 +28,27 @@ export default {
   .save {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
+
+    @include respond-to('small') {
+      margin-bottom: 50px;
+    }
   }
   .save__button {
     color: #fff;
     padding: 5px 20px;
     background: #00b557;
     border-radius: 15px;
-    font-size: 18px;
+    font-size: 16px;
     border: 0;
     cursor: pointer;
     transition: .5s ease;
+    margin-right: 15px;
+
+    @include respond-to('small') {
+      margin-right: 0;
+      font-size: 18px;
+    }
 
     &:hover {
       background: #00cc63;

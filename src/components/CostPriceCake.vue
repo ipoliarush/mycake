@@ -46,6 +46,18 @@ export default {
   }
   .title {
     margin-bottom: 10px;
+    font-size: 25px;
+
+    @include respond-to('small') {
+      font-size: 30px;
+    }
+  }
+  .subtitle {
+    font-size: 14px;
+
+    @include respond-to('small') {
+      font-size: 16px;
+    }
   }
 
 }

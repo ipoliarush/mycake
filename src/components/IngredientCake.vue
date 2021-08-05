@@ -7,7 +7,7 @@
         </h3>
         <div class="form__head head">
           <div class="head__item">
-            Наименование
+            Название
           </div>
           <div class="head__item">
             В упаковке гр/мл/шт
@@ -22,16 +22,16 @@
         <div class="form__body body">
           <div v-for="(item, index) in uping" :key="index" class="body__line">
             <div class="body__item">
-              <input @input="addline(index), count()" v-model="item.name" :name="'iname' + index" type="text" class="body__input">
+              <input @input="addline(index), count()" v-model="item.name" autocomplete="off" :name="'iname' + index" type="text" class="body__input">
             </div> 
             <div class="body__item">
-              <input @input="addline(index), count()" v-model.number="item.weight" :name="'iweight' + index" type="number" min="0" class="body__input">
+              <input @input="addline(index), count()" v-model.number="item.weight" autocomplete="off" :name="'iweight' + index" type="number" min="0" class="body__input">
             </div> 
             <div class="body__item">
-              <input @input="addline(index), count()" v-model.number="item.price" :name="'iprice' + index" type="number" min="0" step="0.1" class="body__input">
+              <input @input="addline(index), count()" v-model.number="item.price" autocomplete="off" :name="'iprice' + index" type="number" min="0" step="0.1" class="body__input">
             </div> 
             <div class="body__item">
-              <input @input="addline(index), count()" v-model.number="item.rweight" :name="'irweigt' + index" type="number" min="0" class="body__input">
+              <input @input="addline(index), count()" v-model.number="item.rweight" autocomplete="off" :name="'irweigt' + index" type="number" min="0" class="body__input">
             </div> 
             <div class="body__remove">
               <button v-on:click="remove(index)" type="button" class="body__button"></button>
@@ -94,7 +94,11 @@ export default {
   flex-direction: column;
   justify-content: center;
   color: #303030;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
+    
+  @include respond-to('small') {
+    margin-bottom: 50px;
+  }
 
   .wrapp {
     margin: 0 auto;
@@ -113,6 +117,11 @@ export default {
   .form__title {
     margin-left: 20px;
     margin-bottom: 10px;
+    font-size: 21px;
+
+    @include respond-to('small') {
+      font-size: 25px;
+    }
   }
   .head {
     display: flex;
@@ -121,11 +130,20 @@ export default {
     padding-right: 50px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    font-size: 14px;
+
+    @include respond-to('small') {
+      font-size: 16px;
+    }
   }
   .head__item {
     flex: 1 1 25%;
     text-align: left;
-    margin: 20px;
+    margin: 15px 1px 15px 15px;
+
+    @include respond-to('small') {
+      margin: 20px;
+    }
   }
   .body {
     display: flex;
@@ -138,6 +156,11 @@ export default {
     background: #fff;
     position: relative;
     border-top: 1px solid #f5f5f5;
+    font-size: 14px;
+
+    @include respond-to('small') {
+      font-size: 16px;
+    }
 
     &:last-child {
       border-bottom-left-radius: 15px;
@@ -146,7 +169,11 @@ export default {
   }
   .body__item {
     flex: 1 1 25%;
-    margin: 20px;
+    margin: 15px 1px 15px 15px;
+
+    @include respond-to('small') {
+      margin: 20px;
+    }
   }
   .body__input {
     width: 100%;
@@ -155,8 +182,11 @@ export default {
   .body__remove {
     position: absolute;
     right: 15px;
-    top: 22px;
+    top: 17px;
 
+    @include respond-to('small') {
+      top: 22px;
+    }
 
     .body__button {
       border: 0;
