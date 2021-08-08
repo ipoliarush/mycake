@@ -3,7 +3,7 @@
     <div class="saved">
       <ul class="saved__list">
         <li v-for="(item, index) in SAVEDCAKE" :key="index" class="saved__item">
-          <button v-on:click="ACTIVECAKE(index)" type="button" class="saved__button">{{ item.cartcake.name }}</button>
+          <button v-on:click="ACTIVECAKE(index), UPDATE_COSTPRICE()" type="button" class="saved__button">{{ item.cartcake.name }}</button>
           <button v-on:click="REMOVECAKE(index)" type="button" class="saved__remove"></button>
         </li>
       </ul>
@@ -24,7 +24,8 @@ export default {
   methods: {
     ...mapMutations([
       'REMOVECAKE',
-      'ACTIVECAKE'
+      'ACTIVECAKE',
+      'UPDATE_COSTPRICE'
     ])
   }
 }
