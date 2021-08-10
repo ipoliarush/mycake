@@ -4,7 +4,7 @@
       <ul class="saved__list">
         <li v-for="(item, index) in SAVEDCAKE" :key="index" class="saved__item">
           <button v-on:click="ACTIVECAKE(index), UPDATE_COSTPRICE()" type="button" class="saved__button">{{ item.cartcake.name }}</button>
-          <button v-on:click="REMOVECAKE(index)" type="button" class="saved__remove"></button>
+          <button v-on:click="remove(index), UPDATE_SAVEDCAKE()" type="button" class="saved__remove"></button>
         </li>
       </ul>
     </div>
@@ -23,10 +23,16 @@ export default {
   },
   methods: {
     ...mapMutations([
-      'REMOVECAKE',
       'ACTIVECAKE',
-      'UPDATE_COSTPRICE'
-    ])
+      'UPDATE_COSTPRICE',
+      'UPDATE_SAVEDCAKE'
+    ]),
+    remove(index) {
+      let savedcake = JSON.parse(localStorage.getItem('savedcake'))
+      savedcake.splice(index, 1)
+
+      localStorage.setItem('savedcake', JSON.stringify(savedcake))
+    }
   }
 }
 </script>
@@ -35,7 +41,7 @@ export default {
 .saved-cake {
   background: #00b557;
   width: 100%;
-  padding: 50px 0;
+  padding: 50px 0 0;
 
   .saved {
     margin: 0 auto;
