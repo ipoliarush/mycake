@@ -1,11 +1,9 @@
 export default {
-  ingridient: [
-    {},{},{}
-  ],
+  ingridient: [{}],
   cartcake: {
     name: '',
     weight: ''
   },
-  costprice: 0, 
+  costprice: 0,
   savedcake: JSON.parse(localStorage.getItem('savedcake')) || []
 }
