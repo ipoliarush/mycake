@@ -2,9 +2,14 @@
   <div id="ingredient" class="ingredient">
     <div class="wrapp">
       <form class="form">
-        <h3 class="form__title">
-          Ингредиенты
-        </h3>
+        <div class="form__top">
+          <h3 class="form__title">
+            Ингредиенты
+          </h3>
+          <a v-on:click.prevent="CLEAR_INGRIDIENT(), count()" href="" class="form__clear">
+            Очистить
+          </a>
+        </div>
         <div class="form__head head">
           <div class="head__item">
             Название
@@ -65,6 +70,7 @@ export default {
   methods: {
     ...mapMutations([
       'UPDATE_INGRIDIENT',
+      'CLEAR_INGRIDIENT'
     ]),
     ...mapMutations({
       count: 'UPDATE_COSTPRICE'
@@ -114,13 +120,35 @@ export default {
     flex-direction: column;
     position: relative;
   }
+  .form__top {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
   .form__title {
     margin-left: 20px;
-    margin-bottom: 10px;
     font-size: 21px;
 
     @include respond-to('small') {
       font-size: 25px;
+    }
+  }
+  .form__clear {
+    color: #303030;
+    margin-right: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px dashed #303030;
+    transition: .5s ease;
+
+    &:hover {
+      border-bottom: 1px transparent;
+    }
+
+    &:focus {
+      color: #00b557;
+      border-bottom: 1px transparent;
     }
   }
   .head {
