@@ -4,24 +4,24 @@
       <form class="form">
         <div class="form__top">
           <h3 class="form__title">
-            Ингредиенты
+            Інгрідієнти
           </h3>
           <a v-on:click.prevent="CLEAR_INGRIDIENT(), count()" href="" class="form__clear">
-            Очистить
+            Очистити
           </a>
         </div>
         <div class="form__head head">
           <div class="head__item">
-            Название
+            Назва
           </div>
           <div class="head__item">
-            В упаковке гр/мл/шт
+            В упаковці гр/мл/шт
           </div>
           <div class="head__item">
-            Стоимость упаковки
+            Ціна упаковки
           </div>
           <div class="head__item">
-            В рецепте гр/мл/шт
+            У рецепті гр/мл/шт
           </div>
         </div>
         <div class="form__body body">
