@@ -4,11 +4,11 @@
     <div class="wrapp">
       <form class="form">
         <h3 class="form__title">
-          Карточка десерта
+          Картка десерту
         </h3>
         <div class="form__head head">
           <div class="head__item">
-            <label class="head__label" for="namecake">Название десерта</label>
+            <label class="head__label" for="namecake">Назва десерту</label>
             <input
               v-model="upcartcake.name"
               class="head__input"
@@ -19,7 +19,7 @@
             />
           </div>
           <div class="head__item">
-            <label class="head__label" for="weightcake">Вес готового десерта в гр.</label>
+            <label class="head__label" for="weightcake">Вага готового десерту у г.</label>
             <input
               v-model.number="upcartcake.weight"
               class="head__input"
