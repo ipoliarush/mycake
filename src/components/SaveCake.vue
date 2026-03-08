@@ -1,7 +1,7 @@
 <template>
   <div id="save-cake" class="save-cake">
     <div class="save">
-      <button v-on:click="save(), update()" type="button" class="save__button">Сохранить рецепт</button>
+      <button v-on:click="save(), update()" type="button" class="save__button">Зберегти рецепт</button>
     </div>
   </div>
 </template>
