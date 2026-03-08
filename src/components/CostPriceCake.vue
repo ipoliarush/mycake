@@ -2,8 +2,8 @@
   <div id="costprice" class="costprice">
     <div class="wrapp">
       <div class="head">
-        <h2 class="title">Себестоимость — {{ COSTPRICE.toFixed(2) }} грн</h2>
-        <p class="subtitle">Не забудьте заложить в стоимость расходы на упаковку, работу кондитера, электроэнергию и амортизацию оборудования.</p>
+        <h2 class="title">Собівартість — {{ COSTPRICE.toFixed(2) }} грн</h2>
+        <p class="subtitle">Не забудьте закласти у вартість витрати на упаковку, роботу кондитера, електроенергію та амортизацію обладнання.</p>
       </div>
     </div>
   </div>
